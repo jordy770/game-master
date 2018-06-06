@@ -52,14 +52,24 @@ var StartScreen = (function () {
     return StartScreen;
 }());
 var Car = (function () {
-    function Car(g) {
-        this.gamescreen = g;
+    function Car() {
         this.car = document.createElement("car");
+        var game = document.getElementsByTagName("game")[0];
+        game.appendChild(this.car);
+        this.speed = 4 + Math.random() * 8;
+        this.x = window.innerWidth - 500;
+        this.y = -400 - (Math.random() * 450);
     }
     Car.prototype.update = function () {
+        this.y += this.speed;
+        this.car.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
     };
     Car.prototype.getRectangle = function () {
         return this.car.getBoundingClientRect();
+    };
+    Car.prototype.reset = function () {
+        this.x = 100 + (Math.random() * (window.innerWidth - 200));
+        this.y = -400 - (Math.random() * 450);
     };
     return Car;
 }());
@@ -68,19 +78,23 @@ var GameScreen = (function () {
         this.hitByCar = 0;
         this.game = g;
         this.player = new Player(this);
-        this.car = new Car(this);
+        this.cars = [new Car(), new Car(), new Car(), new Car()];
     }
     GameScreen.prototype.update = function () {
         this.player.update();
-        this.car.update();
-        if (this.checkCollision(this.player.getRectangle(), this.car.getRectangle())) {
-            this.player.hitCar();
-        }
-        if (this.checkCollision(this.player.getRectangle(), this.car.getRectangle())) {
-            this.hitByCar--;
-            if (this.hitByCar <= 0) {
-                this.game.emptyScreen();
-                this.game.showScreen(new GameOver());
+        for (var _i = 0, _a = this.cars; _i < _a.length; _i++) {
+            var c = _a[_i];
+            c.update();
+            if (this.checkCollision(this.player.getRectangle(), c.getRectangle())) {
+                c.reset();
+                this.player.hitByCar();
+                if (this.hitByCar <= 0) {
+                    this.game.emptyScreen();
+                    this.game.showScreen(new GameOver());
+                }
+            }
+            if (c.getRectangle().bottom - c.getRectangle().height > window.innerHeight) {
+                c.reset();
             }
         }
     };
@@ -95,8 +109,8 @@ var GameScreen = (function () {
 var Player = (function () {
     function Player(g) {
         var _this = this;
-        this.x = 0;
-        this.y = 0;
+        this.x = 10;
+        this.y = 10;
         this.speedLeft = 0;
         this.speedRight = 0;
         this.speedUp = 0;
@@ -104,51 +118,55 @@ var Player = (function () {
         this.lives = 3;
         this.gamescreen = g;
         this.player = document.createElement("player");
+        var game = document.getElementsByTagName("game")[0];
+        game.appendChild(this.player);
         window.addEventListener("keydown", function (e) { return _this.onKeyDown(e); });
         window.addEventListener("keyup", function (e) { return _this.onKeyUp(e); });
     }
     Player.prototype.onKeyDown = function (event) {
         switch (event.key) {
-            case "ArrowLeft":
+            case "a":
                 this.speedLeft = 10;
                 break;
-            case "ArrowRight":
+            case "d":
                 this.speedRight = 10;
                 break;
-            case "ArrowUp":
-                this.speedUp = 50;
+            case "w":
+                this.speedUp = 10;
                 break;
-            case "ArrowDown":
-                this.speedUp = 50;
+            case "s":
+                this.speedDown = 10;
                 break;
         }
     };
     Player.prototype.onKeyUp = function (event) {
         switch (event.key) {
-            case "ArrowLeft":
+            case "a":
                 this.speedLeft = 0;
                 break;
-            case "ArrowRight":
+            case "d":
                 this.speedRight = 0;
                 break;
-            case "ArrowUp":
+            case "w":
                 this.speedUp = 0;
                 break;
-            case "ArrowDown":
-                this.speedUp = 0;
+            case "s":
+                this.speedDown = 0;
                 break;
         }
     };
-    Player.prototype.hitCar = function () {
+    Player.prototype.hitByCar = function () {
         this.lives - 1;
     };
     Player.prototype.update = function () {
-        var newY = this.y - this.speedUp || this.y + this.speedDown;
-        if (newY > 0 && newY < window.innerHeight)
+        var newY = this.y - this.speedUp + this.speedDown;
+        if (newY > 0 && newY < window.innerHeight) {
             this.y = newY;
-        var newX = this.x - this.speedRight || this.x + this.speedLeft;
-        if (newX > 0 && newX < window.innerWidth)
+        }
+        var newX = this.x - this.speedLeft + this.speedRight;
+        if (newX > 0 && newX < window.innerWidth) {
             this.x = newX;
+        }
         this.player.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
     };
     Player.prototype.getRectangle = function () {
