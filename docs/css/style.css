@@ -14,9 +14,23 @@ player {
     background-color: brown;
 }
 
-car {
+carBlue{
     position: absolute;
-    width: 200px;
-    height: 400px;
-    background-color: blue; 
+    width: 150px;
+    height: 300px;
+    background-image: url("../images/blue-car-top-view-md.png")
+}
+
+carRed{
+    position: absolute;
+    width: 150px;
+    height: 300px;
+    background-image: url("../images/red-car-top-view-md.png")
+}
+
+carYellow{
+    position: absolute;
+    width: 150px;
+    height: 300px;
+    background-image: url("../images/yellow-car-top-view-md.png")
 }

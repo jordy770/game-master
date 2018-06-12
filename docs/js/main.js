@@ -1,4 +1,14 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Game = (function () {
     function Game() {
         this.currentscreen = new StartScreen(this);
@@ -53,12 +63,12 @@ var StartScreen = (function () {
 }());
 var Car = (function () {
     function Car() {
-        this.car = document.createElement("car");
+        this.car = document.createElement("carRed");
         var game = document.getElementsByTagName("game")[0];
         game.appendChild(this.car);
         this.speed = 4 + Math.random() * 8;
         this.x = window.innerWidth - 500;
-        this.y = -400 - (Math.random() * 450);
+        this.y = (Math.random() * 450);
     }
     Car.prototype.update = function () {
         this.y += this.speed;
@@ -68,7 +78,7 @@ var Car = (function () {
         return this.car.getBoundingClientRect();
     };
     Car.prototype.reset = function () {
-        this.x = 100 + (Math.random() * (window.innerWidth - 200));
+        this.x = (Math.random() * (window.innerWidth - 150));
         this.y = -400 - (Math.random() * 450);
     };
     return Car;
@@ -174,4 +184,11 @@ var Player = (function () {
     };
     return Player;
 }());
+var Red = (function (_super) {
+    __extends(Red, _super);
+    function Red() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Red;
+}(Car));
 //# sourceMappingURL=main.js.map
