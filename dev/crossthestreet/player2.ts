@@ -1,22 +1,24 @@
-class Player1{
+class Player2{
 
     private player:HTMLElement
-    private x:number = 10
+    private x:number = window.innerWidth -100
     private y:number = 700
     private speedLeft: number = 0
     private speedRight: number = 0
     private speedUp: number = 0
     private speedDown: number = 0
     private lives:number = 3
-    
+
     private frames = 3
     private frame = 0
     private framewidth = 50
     private speedcounter = 0
+    
 
 
     constructor(){
         this.frame = 0
+
      
         this.player = document.createElement("player")
         let game = document.getElementsByTagName("game")[0]
@@ -30,37 +32,41 @@ class Player1{
 
     onKeyDown(event: KeyboardEvent): void {
         switch (event.key) {
-            case "a":
+            case "ArrowLeft":
                 this.speedLeft = 10
                 this.jumpleft()
+
                 break
-            case "d":
+            case "ArrowRight":
                 this.speedRight = 10
                 this.jumpright()
+
                 break
-            case "w":
+            case "ArrowUp":
                 this.speedUp = 10
                 this.jumpup()
+
                 break
-            case "s":
+            case "ArrowDown":
                 this.speedDown = 10
                 this.jumpdown()
+
                 break
         }
     }
 
     onKeyUp(event: KeyboardEvent): void {
         switch (event.key) {
-            case "a":
+            case "ArrowLeft":
                 this.speedLeft = 0
                 break
-            case "d":
+            case "ArrowRight":
                 this.speedRight = 0
                 break
-            case "w":                 
+            case "ArrowUp":
                 this.speedUp = 0
                 break
-            case "s":
+            case "ArrowDown":
                 this.speedDown = 0
                 break
         }
@@ -75,6 +81,7 @@ class Player1{
      }
 
     public update(){
+
         let newY = this.y - this.speedUp + this.speedDown
         if (newY > 0 && newY < window.innerHeight) {
         this.y = newY

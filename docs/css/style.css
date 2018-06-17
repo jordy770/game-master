@@ -1,17 +1,39 @@
 body, html {
-    margin:0; padding:0;
     width:100%; height:100%;
+    font-family: "Menlo", Arial, Helvetica, sans-serif;
+    color:white;
+    overflow:hidden;
+    margin:0px; padding:0px;
+    background-color:#333;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
 }
 
 * {
     box-sizing: border-box;
+    
 }
 
+body{
+    background-image: url(../images/background\ XD.png);
+}
+
+textfield {
+    font-size: 2em;
+    width:530px;
+  
+    transform: translate(20px, 20px);
+    cursor:pointer;
+}
+
+
 player {
-    position: absolute;
+    display:block;
     width: 50px;
-    height: 150px;
-    background-color: brown;
+    height: 50px;
+    background-repeat:no-repeat;
+    background-image:url(../images/BRsl3zI.png);
+
 }
 
 carBlue{
@@ -33,4 +55,18 @@ carYellow{
     width: 150px;
     height: 300px;
     background-image: url("../images/yellow-car-top-view-md.png")
+}
+
+start1P {
+    font-size:2em;
+    cursor: pointer;
+    
+    margin-left:1vh;
+}
+
+start2P {
+    font-size:2em;
+    cursor: pointer;
+   
+    margin-left:24vh;
 }

@@ -1,6 +1,6 @@
 class Game {
 
-    private currentscreen : StartScreen | GameScreen | GameOver
+    private currentscreen : StartScreen | GameScreen | GameScreen2P | GameOver
     // width: number = 1280;
     // height: number = 720;
 
@@ -21,7 +21,7 @@ class Game {
         game.innerHTML = ""
     }
 
-    public showScreen(screen : StartScreen | GameScreen | GameOver ) {
+    public showScreen(screen : StartScreen | GameScreen | GameScreen2P | GameOver ) {
         this.currentscreen = screen
     }
     

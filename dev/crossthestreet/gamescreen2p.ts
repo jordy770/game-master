@@ -1,11 +1,12 @@
-class GameScreen{
+class GameScreen2P{
 
-    private player:Player1
+    private player1:Player1
+    private player2:Player2
     private cars:Car[]
     // private foreground:HTMLElement
     private game:Game
-    private hitByCar:number = 0
     private score:number = 0
+    private hitByCar:number = 0
     private textfield:HTMLElement
 
     
@@ -17,7 +18,8 @@ class GameScreen{
         this.textfield = document.createElement("textfield")
         document.body.appendChild(this.textfield)
 
-        this.player = new Player1()
+        this.player1 = new Player1()
+        this.player2 = new Player2()
         this.cars = [new Blue(), new Yellow(), new Yellow(), new Red(), new Red(), new Red()]
 
     }
@@ -25,15 +27,25 @@ class GameScreen{
 
 
     public update():void {
-        this.player.update()       
+        this.player1.update()     
+        this.player2.update()      
         
         for (let c of this.cars){
             c.update()
       
         
-        if (this.checkCollision(this.player.getRectangle(), c.getRectangle())) {
+        if (this.checkCollision(this.player1.getRectangle(), c.getRectangle())) {
             c.reset()
-            this.player.hitByCar()
+            this.player1.hitByCar()
+            if(this.hitByCar <= 0){
+                this.game.emptyScreen()
+                this.game.showScreen(new GameOver(this.game))
+            }
+        }
+
+        if (this.checkCollision(this.player2.getRectangle(), c.getRectangle())) {
+            c.reset()
+            this.player2.hitByCar()
             if(this.hitByCar <= 0){
                 this.game.emptyScreen()
                 this.game.showScreen(new GameOver(this.game))
@@ -43,7 +55,7 @@ class GameScreen{
         if (c.getRectangle().bottom - c.getRectangle().height > window.innerHeight) {
             c.reset()
         }
-        this.score++
+        this.score = this.score + 1
         this.textfield.innerHTML = "Score = " + this.score
     }
 }
