@@ -7,14 +7,14 @@ class GameOver {
         this.game = g
         this.textfield = document.createElement("textfield")
         document.body.appendChild(this.textfield)
-        this.textfield.addEventListener("click", ()=> this.switchScreens())
+        // this.textfield.addEventListener("click", ()=> this.switchScreens())
         
     }
     public update() { 
         this.textfield.innerHTML =  " GAME OVER, MAN!"
     }
-    private switchScreens(){
-        this.game.emptyScreen()
-        this.game.showScreen(new StartScreen(this.game))
-    }
-}
+//     private switchScreens(){
+//         this.game.emptyScreen()
+//         this.game.showScreen(new StartScreen(this.game))
+//     }
+// }

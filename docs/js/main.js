@@ -31,18 +31,12 @@ var Game = (function () {
 window.addEventListener("load", function () { return new Game(); });
 var GameOver = (function () {
     function GameOver(g) {
-        var _this = this;
         this.game = g;
         this.textfield = document.createElement("textfield");
         document.body.appendChild(this.textfield);
-        this.textfield.addEventListener("click", function () { return _this.switchScreens(); });
     }
     GameOver.prototype.update = function () {
         this.textfield.innerHTML = " GAME OVER, MAN!";
-    };
-    GameOver.prototype.switchScreens = function () {
-        this.game.emptyScreen();
-        this.game.showScreen(new StartScreen(this.game));
     };
     return GameOver;
 }());
