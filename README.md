@@ -9,12 +9,12 @@ Lets edit something!
 - [x] De game is online speelbaar.
 - [x] De game bevat minimaal één van de onderstaande extra uitdagingen.
 - [x] De game heeft een startscherm en een eindscherm.
-- [ ] Er zijn geen bugs.
-- [ ] Het project maakt gebruik van deze OOP principes.
-    - [ ] Classes
-    - [ ] Encapsulation
-    - [ ] Composition
-    - [ ] Inheritance
+- [x] Er zijn geen bugs.
+- [x] Het project maakt gebruik van deze OOP principes.
+    - [x] Classes
+    - [x] Encapsulation
+    - [x] Composition
+    - [x] Inheritance
 - [ ] De GitHub pagina bevat een ReadMe bestand. Dit bestand bevat:
     - [ ] Per bovengenoemd OOP principe een uitleg: waar is het toegepast, en waarom is het
         op die plek toegepast. De uitleg is inclusief code voorbeelden.
