@@ -17,4 +17,4 @@ class GameOver {
 //         this.game.emptyScreen()
 //         this.game.showScreen(new StartScreen(this.game))
 //     }
-// }
+}
