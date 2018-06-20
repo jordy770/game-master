@@ -13,8 +13,4 @@ class GameOver {
     public update() { 
         this.textfield.innerHTML =  " GAME OVER, MAN!"
     }
-//     private switchScreens(){
-//         this.game.emptyScreen()
-//         this.game.showScreen(new StartScreen(this.game))
-//     }
 }
