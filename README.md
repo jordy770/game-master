@@ -4,6 +4,7 @@ Lets edit something!
 - https://jordy770.github.io/game-master/
 
 # Beoordeling
+### PeerReview Sven Koene https://github.com/Sven-Koene/programmeren4
 
 - [x] De code van het individuele project staat op GitHub.
 - [x] De game is online speelbaar.
