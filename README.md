@@ -29,8 +29,6 @@ Game voor Programmeren!!
 - [ ] De game maakt gebruik van device api's zoals de camera, microfoon, gyroscoop of GPS.
 - [ ] De game gebruikt een externe library uit de lijst in deze modulewijzer. 
 
-## Mijn feedback
-Ik sta der versteld van hoe Sven zoiets prachtigs heeft kunnen creeën, ik Rate deze game een <b>10/10 IGN Rated</b>  
 
 # Toelichting OOP principes
 ## Classes
