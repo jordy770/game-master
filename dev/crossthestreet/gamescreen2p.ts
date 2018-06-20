@@ -55,7 +55,7 @@ class GameScreen2P{
         if (c.getRectangle().bottom - c.getRectangle().height > window.innerHeight) {
             c.reset()
         }
-        this.score = this.score + 1
+        this.score = this.score + 2
         this.textfield.innerHTML = "Score = " + this.score
     }
 }

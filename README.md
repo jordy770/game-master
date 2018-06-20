@@ -190,6 +190,7 @@ class Red extends GameObject{
 
 # Klassendiagram
 
+![umlgame-master](https://user-images.githubusercontent.com/32267019/41683409-cb02beb2-74da-11e8-95cf-ef20b5c86853.png)
 
 
 # Peer reviews
