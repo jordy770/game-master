@@ -221,4 +221,4 @@ class Red extends GameObject{
 - [ ] De game gebruikt een externe library uit de lijst in deze modulewijzer. 
 
 ## Mijn feedback
-Ik sta der versteld van hoe Sven zoiets prachtigs heeft kunnen creeën, ik Rate deze game een <b>10/10 IGN Rated</b>  
+Ik sta der versteld van hoe Sven zoiets prachtigs heeft kunnen creeën, omdat dit zijn eerste game is die hij zelf voluit heeft geprogrammeerd, ik Rate deze game een <b>10/10 IGN Rated</b>  
